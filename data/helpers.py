@@ -1,11 +1,7 @@
 import datetime as dt
 import random
 
-class TestData:
-    start_page = 'https://qa-desk.stand.praktikum-services.ru/'
-    user_exist = {'login': 'user14092025@mai.tst', 'password': '123'}
-    invalid_email_user = {'login': 'user14092025%mai,tst', 'password': '123'}
-
+class TestDataCreation:
 
     @staticmethod
     def new_user():
@@ -31,7 +27,6 @@ class TestData:
         condition_locator = f'.//input[@value="{condition}"]/following-sibling::div'   
         description = f'Продается {condition} {name}. Исключительно для истинных ценителей {category}'
         price = str(random.randint(1000, 9999))
-        
 
         good = {
             'city': city,

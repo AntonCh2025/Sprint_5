@@ -1,7 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from locators import StartPageLocators as locator
-from data import TestData as td
+from data.locators import StartPageLocators as locator
+from data.data import TestDataStatic as td
 
 
 #Login пользователя

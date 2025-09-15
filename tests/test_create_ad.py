@@ -2,8 +2,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from locators import StartPageLocators as locator
-from data import TestData as td
+from data.locators import StartPageLocators as locator
+from data.data import TestDataStatic as td
+from data.helpers import TestDataCreation as new
 
 #Создание объявления неавторизованным пользователем
 def test_create_ad_unauthorized_user_error(browser):
@@ -26,7 +27,7 @@ def test_create_ad_authorized_user_success(new_user, browser):
     browser.find_element(*locator.post_an_ad_button).click()
 
     # Заполнить все поля формы: «Название», «Описание товара», «Стоимость» — стоимость должна быть указана в числовом формате.
-    new_good = td.new_good()
+    new_good = new.new_good()
 
     WebDriverWait(browser, 3).until(EC.visibility_of_element_located(locator.new_good_description))
     browser.find_element(*locator.new_good_name).send_keys(new_good['name'])

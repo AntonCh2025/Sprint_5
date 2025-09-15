@@ -1,7 +1,8 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from locators import StartPageLocators as locator
-from data import TestData as td
+from data.locators import StartPageLocators as locator
+from data.data import TestDataStatic as td
+from data.helpers import TestDataCreation as new
 
 
 #Регистрация пользователя
@@ -13,7 +14,7 @@ def test_user_registration_valid_email_sucess(browser):
     browser.find_element(*locator.ent_no_account_button).click()
     
     # Заполнить все поля формы регистрации и нажать кнопку «Создать аккаунт».
-    new_user = td.new_user()
+    new_user = new.new_user()
     browser.find_element(*locator.reg_email_input).send_keys(new_user['login'])
     browser.find_element(*locator.reg_password_input).send_keys(new_user['password'])
     browser.find_element(*locator.reg_confirm_password_input).send_keys(new_user['password'])
