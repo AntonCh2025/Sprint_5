@@ -24,5 +24,3 @@ def new_user(browser):
     browser.find_element(*locator.reg_password_input).send_keys(new_user['password'])
     browser.find_element(*locator.reg_confirm_password_input).send_keys(new_user['password'])
     browser.find_element(*locator.reg_create_button).click()
-
-    return browser
